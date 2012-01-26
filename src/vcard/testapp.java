@@ -12,8 +12,8 @@ import vcard.cards.VCardContainer;
 import vcard.properties.PropertyTypes;
 import vcard.properties.VCardPropertyFormattedName;
 import vcard.properties.VCardPropertyName;
-import vcard.properties.ValueN;
-import vcard.properties.ValueSingleText;
+import vcard.properties.valuetypes.ValueN;
+import vcard.properties.valuetypes.ValueSingleText;
 
 /**
  *

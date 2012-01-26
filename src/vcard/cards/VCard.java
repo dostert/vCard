@@ -4,6 +4,7 @@
  */
 package vcard.cards;
 
+import vcard.properties.valuetypes.ValueSingleText;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;

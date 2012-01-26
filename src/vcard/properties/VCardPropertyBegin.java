@@ -4,6 +4,8 @@
  */
 package vcard.properties;
 
+import vcard.properties.valuetypes.ValueSingleText;
+
 /**
  *
  * @author dostert
