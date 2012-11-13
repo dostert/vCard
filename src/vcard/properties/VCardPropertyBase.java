@@ -4,6 +4,8 @@
  */
 package vcard.properties;
 
+import vcard.properties.valuetypes.ValueBase;
+
 /**
  *
  * @author dostert

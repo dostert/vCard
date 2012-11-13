@@ -2,3 +2,4 @@ build
 dist
 nbproject/.gitignore
 test.vcf
+/nbproject/private/
