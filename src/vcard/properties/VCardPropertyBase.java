@@ -8,7 +8,7 @@ package vcard.properties;
  *
  * @author dostert
  */
-public abstract class VCardPropertyBase {
+public abstract class VCardPropertyBase extends Object{
     /* PropNames */
     public static String PropertyName_BEGIN = "BEGIN";
     public static String PropertyName_END = "END";
@@ -52,7 +52,7 @@ public abstract class VCardPropertyBase {
         return myCardinality;
     }
     
-    protected final void setValue(ValueBase value){
+    public final void setValue(ValueBase value){
         myValue = value;
     }
     

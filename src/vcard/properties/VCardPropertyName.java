@@ -20,7 +20,4 @@ public class VCardPropertyName  extends VCardPropertyBase{
         return PropertyTypes.N.getName();
     }        
     
-    public void setValue(ValueN value){
-        myValue = value;
-    }
 }

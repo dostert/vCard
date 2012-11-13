@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 import vcard.cards.VCard;
 import vcard.cards.VCardContainer;
 import vcard.properties.PropertyTypes;
+import vcard.properties.VCardPropertyBase;
 import vcard.properties.VCardPropertyFormattedName;
 import vcard.properties.VCardPropertyName;
 import vcard.properties.ValueN;
@@ -26,13 +27,13 @@ public class testapp {
      */
     public static void main(String[] args) {
         VCardContainer c = new VCardContainer();
+
         VCard vc = c.createVCard();
-        VCardPropertyName pn = (VCardPropertyName)vc.addProperty(PropertyTypes.N);
+        VCardPropertyBase pn = vc.addProperty(VCardPropertyName.class);
         pn.setValue(new ValueN("Ostertag", "Dirk", "Günter,Gotthilf", "Director", ""));
-        VCardPropertyFormattedName pfn = (VCardPropertyFormattedName)vc.addProperty(PropertyTypes.FN);
+        VCardPropertyBase pfn = vc.addProperty(VCardPropertyFormattedName.class);
         pfn.setValue(new ValueSingleText("Dirk Ostertag"));
-        
-        c.createVCard();
+
         try {
             c.wirteToFile("./test.vcf");
         } catch (FileNotFoundException ex) {

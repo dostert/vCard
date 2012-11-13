@@ -14,74 +14,42 @@ import vcard.properties.*;
  * @author dostert
  */
 public class VCard {
+
     private ArrayList<VCardPropertyBase> myProperties = new ArrayList<VCardPropertyBase>();
     
-    public VCard(){
+    public VCard() {
     }
     
-    public void initNew(){
+    public void initNew() {
         myProperties.clear();
         VCardPropertyBase p;
-        addProperty(PropertyTypes.BEGIN);
-        p = addProperty(PropertyTypes.VERSION);
-        ((VCardPropertyVersion)p).setValue(new ValueSingleText(VCardPropertyBase.DEFAULT_VALUE_21));
-        addProperty(PropertyTypes.END);       
+        addProperty(VCardPropertyBegin.class);
+        p = addProperty(VCardPropertyVersion.class);
+        ((VCardPropertyVersion) p).setValue(new ValueSingleText(VCardPropertyBase.DEFAULT_VALUE_21));
+        addProperty(VCardPropertyEnd.class);        
     }
     
-    public boolean writeDown(PrintWriter pw){
+    public boolean writeDown(PrintWriter pw) {
         Collections.sort(myProperties, new ComparatorProperties());
-        for(VCardPropertyBase vc : myProperties){
+        for (VCardPropertyBase vc : myProperties) {
             pw.println(vc.toString());
         }
         return true;
     }
     
-    public final VCardPropertyBase addProperty(PropertyTypes type){
-        VCardPropertyBase p = null;
+    public final VCardPropertyBase addProperty(Class type) {
+        VCardPropertyBase cast = null;
+        try {
+            cast = VCardPropertyBase.class.cast(type.newInstance());
+        } catch (Exception ex) {
+            return null;
+        }
         
-        switch(type){
-            case ADR:
-                p = new VCardPropertyDeliveryAddress();
-                break;
-            case BDAY:
-                p = new VCardPropertyBirthday();
-                break;
-            case BEGIN:
-                p = new VCardPropertyBegin();
-                break;
-            case EMAIL:
-                p = new VCardPropertyEMail();
-                break;
-            case END:
-                p = new VCardPropertyEnd();
-                break;
-            case FN:
-                p = new VCardPropertyFormattedName();
-                break;
-            case LABEL:
-                p = new VCardPropertyLabelAddress();
-                break;
-            case N:
-                p = new VCardPropertyName();
-                break;
-            case NICKNAME:
-                p = new VCardPropertyNickName();
-                break;
-            case TEL:
-                p = new VCardPropertyTelephone();
-                break;
-            case TITLE:
-                p = new VCardPropertyTitle();
-                break;
-            case VERSION:
-                p = new VCardPropertyVersion();
-                break;
-            default:
-                p = null;
+        if (cast != null) {
+            myProperties.add(cast);
         }
-        if(p != null){
-            myProperties.add(p);
-        }
-        return p;
+        return (VCardPropertyBase)cast;
     }
+    
+    
 }

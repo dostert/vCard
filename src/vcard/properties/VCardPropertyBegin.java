@@ -8,7 +8,7 @@ package vcard.properties;
  *
  * @author dostert
  */
-public class VCardPropertyBegin  extends VCardPropertyBase{
+public final class VCardPropertyBegin  extends VCardPropertyBase{
 
     public VCardPropertyBegin(){
         setValue(new ValueSingleText(DEFAULT_VALUE_VCARD));

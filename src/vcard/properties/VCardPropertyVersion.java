@@ -19,8 +19,4 @@ public class VCardPropertyVersion  extends VCardPropertyBase{
     public String getName() {
         return PropertyTypes.VERSION.getName();
     }      
-    
-    public void setValue(ValueSingleText value){
-        myValue = value;
-    }
 }

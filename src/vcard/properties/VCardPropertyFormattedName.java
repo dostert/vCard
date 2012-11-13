@@ -19,9 +19,4 @@ public class VCardPropertyFormattedName  extends VCardPropertyBase{
     public String getName() {
         return PropertyTypes.FN.getName();
     }
-    
-    public void setValue(ValueSingleText value){
-        myValue = value;
-    }
-
 }
